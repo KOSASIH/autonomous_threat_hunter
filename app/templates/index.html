@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autonomous Threat Hunter</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <h1>Autonomous Threat Hunter</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Threat Name</th>
+                <th>Confidence</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for threat in threats %}
+                <tr>
+                    <td>{{ threat.name }}</td>
+                    <td>{{ threat.confidence }}</td>
+                    <td>
+                        <form method="POST" action="/threat/{{ threat.id }}">
+                            <input type="submit" value="Mitigate">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
