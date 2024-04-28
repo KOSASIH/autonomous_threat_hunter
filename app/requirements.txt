@@ -1,0 +1,8 @@
+flask
+numpy
+scikit-learn
+tensorflow
+gunicorn
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-Script
